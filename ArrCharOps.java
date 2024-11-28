@@ -7,7 +7,8 @@ public class ArrCharOps {
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));      
+        System.out.println(charAt(arr1,2));  
+        System.out.println(charAt(arr1,0));      
         System.out.println(indexOf(arr1,'l'));  
         System.out.println(indexOf(arr1,'l',3)); 
         System.out.println(lastIndexOf(arr1, 'l'));
@@ -35,9 +36,14 @@ public class ArrCharOps {
 
     /** Returns the char value at the specified index. Assume that the array is non-empty.
      */
+    //  In this particular method you have to assume that the array is
+// not empty, meaning that it contains at least one element.
+
     public static char charAt(char[] arr, int index) {
-        // Replace the following statement with your code
+      if(arr == null){
         return 0;
+      }
+      return arr[index];
     }
 
     /** If the two arrays have the same value in every index, 
