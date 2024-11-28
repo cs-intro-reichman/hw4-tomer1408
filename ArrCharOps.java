@@ -5,6 +5,7 @@ public class ArrCharOps {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
+        char[] arr3 = {'h','a','m','b','u','r','g', 'e', 'r'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
         // System.out.println(charAt(arr1,2));      
@@ -13,9 +14,9 @@ public class ArrCharOps {
         // System.out.println(indexOf(arr2,'m')); //-1
         // System.out.println(indexOf(arr1,'l',3)); // 5
         // System.out.println(lastIndexOf(arr1, 'l')); // 5
-        System.out.println(concat(arr1, arr2));
-        // System.out.println(subArray(arr2, 2, 9));
-        // System.out.println(compareTo("abcd", "abcd"));
+        //System.out.println(concat(arr1, arr2));
+        System.out.println(subArray(arr2, 4, 8)); // 'd','e','r','s','t', 'o', 'o'
+        System.out.println(subArray(arr3 ,4, 8)); 
         // System.out.println(compareTo("abc", "abcd"));
         // System.out.println(compareTo("abw", "abcd"));
         // System.out.println(compareTo("Abcd", "a"));
@@ -150,10 +151,22 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        // Replace the following statement with your code
-        return null;
-    }
+        if (arr == null) {
+            return null;
+        }
+        if (beginIndex < 0 || endIndex > arr.length || endIndex < beginIndex) {
+            return null;
+        }
+    
+        char[] newArray = new char[endIndex - beginIndex];
 
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = arr[beginIndex + i];
+        }
+    
+        return newArray;
+    }
+    
      /** Returns a single integer that represents the given array. This integer is sometimes 
      *  referred to as the array's "hash code". Later in the course we'll explain what these 
      *  hash codes are used for. For now, simply implement the specification given below.
