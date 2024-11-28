@@ -7,21 +7,23 @@ public class ArrCharOps {
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));      
-        System.out.println(indexOf(arr1,'l'));  
-        System.out.println(indexOf(arr1,'l',3)); 
-        System.out.println(lastIndexOf(arr1, 'l'));
+        // System.out.println(charAt(arr1,2));      
+        // System.out.println(indexOf(arr1,'l')); // 1  
+        // System.out.println(indexOf(arr2,'s')); //5
+        // System.out.println(indexOf(arr2,'m')); //-1
+        // System.out.println(indexOf(arr1,'l',3)); // 5
+        // System.out.println(lastIndexOf(arr1, 'l')); // 5
         System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
-        System.out.println(compareTo("abcd", "abcd"));
-        System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
-        System.out.println(compareTo("apple", "banana"));
-        System.out.println(compareTo("apple", "applepie"));
-        System.out.println(compareTo("Zoo", "zoo"));
-        System.out.println(hashCode(arr1));
-        System.out.println(hashCode(arr2));
+        // System.out.println(subArray(arr2, 2, 9));
+        // System.out.println(compareTo("abcd", "abcd"));
+        // System.out.println(compareTo("abc", "abcd"));
+        // System.out.println(compareTo("abw", "abcd"));
+        // System.out.println(compareTo("Abcd", "a"));
+        // System.out.println(compareTo("apple", "banana"));
+        // System.out.println(compareTo("apple", "applepie"));
+        // System.out.println(compareTo("Zoo", "zoo"));
+        // System.out.println(hashCode(arr1));
+        // System.out.println(hashCode(arr2));
     }
 
     /** Prints the given array of characters, and moves the cursor to the next line.
@@ -67,31 +69,80 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
+        if(arr == null){
+            return -1;
+          }
+          for(int i = 0; i <arr.length;i++ ){
+            if(arr[i] == ch ){
+                return i;
+              }
+        }
         return -1;
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        // Replace the following statement with your code
-        return -1;
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        if (fromIndex < 0) {
+            fromIndex = 0; 
+        }
+        if (fromIndex >= arr.length) {
+            return -1; 
+        }
+        for (int i = fromIndex; i < arr.length; i++) {
+            if (arr[i] == ch) {
+                return i; 
+            }
+        }
+        return -1; 
     }
+    
+    
 
     /** Returns the index within the given arr of the last occurrence of the given character.
      *  If no such character is found, returns -1.
      */
+
     public static int lastIndexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        if (arr == null) {
+            return -1; 
+        }
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == ch) {
+                return i; 
+            }
+        }
+        return -1; 
     }
+    
 
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return null;
+        if (arr1 == null) {
+            arr1 = new char[0]; 
+        }
+        if (arr2 == null) {
+            arr2 = new char[0]; 
+        }
+    
+        char[] newArray = new char[arr1.length + arr2.length];
+    
+        for (int i = 0; i < arr1.length; i++) {
+            newArray[i] = arr1[i];
+        }
+    
+ 
+        for (int i = 0; i < arr2.length; i++) {
+            newArray[arr1.length + i] = arr2[i];
+        }
+    
+        return newArray;
     }
+    
 
     /** Returns a new array that can be described as a sub-array of this array.
      *  The sub-array begins at the specified beginIndex and extends to the character at index endIndex - 1.
