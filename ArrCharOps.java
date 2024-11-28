@@ -7,8 +7,7 @@ public class ArrCharOps {
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));  
-        System.out.println(charAt(arr1,0));      
+        System.out.println(charAt(arr1,2));      
         System.out.println(indexOf(arr1,'l'));  
         System.out.println(indexOf(arr1,'l',3)); 
         System.out.println(lastIndexOf(arr1, 'l'));
@@ -50,8 +49,15 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return false;
+        if(arr1.length != arr2.length){
+            return false;
+          }
+          for(int i = 0; i <=arr2.length;i++ ){
+            if(arr1[i] != arr2[i] ){
+                return false;
+              }
+        }
+        return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
