@@ -15,16 +15,16 @@ public class ArrCharOps {
         // System.out.println(indexOf(arr1,'l',3)); // 5
         // System.out.println(lastIndexOf(arr1, 'l')); // 5
         //System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 4, 8)); // 'd','e','r','s','t', 'o', 'o'
-        System.out.println(subArray(arr3 ,4, 8)); 
+        // System.out.println(subArray(arr2, 4, 8)); // 'd','e','r','s','t', 'o', 'o'
+        // System.out.println(subArray(arr3 ,4, 8)); 
         // System.out.println(compareTo("abc", "abcd"));
         // System.out.println(compareTo("abw", "abcd"));
         // System.out.println(compareTo("Abcd", "a"));
         // System.out.println(compareTo("apple", "banana"));
         // System.out.println(compareTo("apple", "applepie"));
         // System.out.println(compareTo("Zoo", "zoo"));
-        // System.out.println(hashCode(arr1));
-        // System.out.println(hashCode(arr2));
+        System.out.println(hashCode(arr1));
+        System.out.println(hashCode(arr2));
     }
 
     /** Prints the given array of characters, and moves the cursor to the next line.
@@ -175,8 +175,17 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        // Replace the following statement with your code
-        return 0;
+        if (arr == null) {
+            return 0; 
+        }
+    
+        int hashCode = 0; 
+        int n = arr.length; 
+        for (int i = 0; i < n; i++) {
+            hashCode += arr[i] * Math.pow(7, n - 1 - i);
+        }
+    
+        return hashCode; 
     }
 
     /**
