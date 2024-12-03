@@ -23,7 +23,7 @@ public class KeywordsDetector {
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         for (int i = 0; i < sentences.length; i++) { 
-            String sentence = sentences[i]; 
+            String sentence = MyString.lowerCase(sentences[i]); 
             boolean found = false; 
 
             for (int j = 0; j < keywords.length; j++) { 
