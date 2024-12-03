@@ -37,28 +37,57 @@ public class MyString {
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
-    public static boolean contains(String str1, String str2) {
+    // public static boolean contains(String str1, String str2) {
   
-        if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()) {
+    //     if (str1 == null || str2 == null) {
+    //         return true;
+    //     }
+    //     String longerString;
+    //     String shorterString;
+    
+    //     if (str1.length() >= str2.length()) {
+    //         longerString = str1;
+    //         shorterString = str2;
+    //     } else {
+    //         longerString = str2;
+    //         shorterString = str1;
+    //     }
+    
+    //     for (int i = 0; i <= longerString.length() - shorterString.length(); i++) {
+    //         boolean match = true;
+    
+    //         for (int j = 0; j < shorterString.length(); j++) {
+    //             if (longerString.charAt(i + j) != shorterString.charAt(j)) {
+    //                 match = false; 
+    //                 break;
+    //             }
+    //         }
+    
+    //         if (match) {
+    //             return true;
+    //         }
+    //     }
+    
+    //     return false;
+    // }
+
+    public static boolean contains(String str1, String str2) {
+        if (str1 == null || str2 == null) {
             return false;
         }
-        String longerString;
-        String shorterString;
-    
-        if (str1.length() >= str2.length()) {
-            longerString = str1;
-            shorterString = str2;
-        } else {
-            longerString = str2;
-            shorterString = str1;
+        if (str2.length()==0) {
+            return true; 
+        }
+        if (str2.length() > str1.length()) {
+            return false; 
         }
     
-        for (int i = 0; i <= longerString.length() - shorterString.length(); i++) {
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
             boolean match = true;
     
-            for (int j = 0; j < shorterString.length(); j++) {
-                if (longerString.charAt(i + j) != shorterString.charAt(j)) {
-                    match = false; 
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) { 
+                    match = false;
                     break;
                 }
             }
