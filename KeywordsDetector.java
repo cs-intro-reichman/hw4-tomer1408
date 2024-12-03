@@ -24,14 +24,19 @@ public class KeywordsDetector {
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         for (int i = 0; i < sentences.length; i++) { 
             String sentence = sentences[i]; 
-    
+            boolean found = false; 
+
             for (int j = 0; j < keywords.length; j++) { 
                 String keyword = keywords[j]; 
     
-                if (MyString.contains(sentence, keyword)) { 
-                    System.out.println("Sentence: \"" + sentence + "\" contains the keyword: \"" + keyword + "\"");
-                    break; 
+                if (MyString.contains(sentence, keyword)) {
+                    found = true;
+                    break;
                 }
+            }
+    
+            if (found) {
+                System.out.println(sentence); 
             }
         }
     }
