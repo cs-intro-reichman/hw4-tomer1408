@@ -18,27 +18,56 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-        String preprocessedVersion = "";
+        String lowCaseVersion = "";
         int i = 0;
     
         while (i < str.length()) {
             char ch = str.charAt(i);
     
             if ((ch >= 97 && ch <= 122) || ch == 32 || (ch >= 48 && ch <= 57)) { 
-                preprocessedVersion = preprocessedVersion + ch;
+                lowCaseVersion = lowCaseVersion + ch;
     
             } else if (ch >= 65 && ch <= 90) {
-                preprocessedVersion = preprocessedVersion + (char) (ch + 32); 
+                lowCaseVersion = lowCaseVersion + (char) (ch + 32); 
     
             }
             i++;
         }
-        return preprocessedVersion;
+        return lowCaseVersion;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
+  
+        if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()) {
+            return false;
+        }
+        String longerString;
+        String shorterString;
+    
+        if (str1.length() >= str2.length()) {
+            longerString = str1;
+            shorterString = str2;
+        } else {
+            longerString = str2;
+            shorterString = str1;
+        }
+    
+        for (int i = 0; i <= longerString.length() - shorterString.length(); i++) {
+            boolean match = true;
+    
+            for (int j = 0; j < shorterString.length(); j++) {
+                if (longerString.charAt(i + j) != shorterString.charAt(j)) {
+                    match = false; 
+                    break;
+                }
+            }
+    
+            if (match) {
+                return true;
+            }
+        }
+    
         return false;
     }
 }
